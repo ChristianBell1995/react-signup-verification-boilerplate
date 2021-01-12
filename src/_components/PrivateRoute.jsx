@@ -6,6 +6,10 @@ import { accountService } from '@/_services';
 function PrivateRoute({ component: Component, roles, ...rest }) {
     return (
         <Route {...rest} render={props => {
+            console.log('In the router')
+            console.log(props.location)
+            console.log("rest")
+            console.log(rest)
             const user = accountService.userValue;
             if (!user) {
                 // not logged in so redirect to login page with the return url
