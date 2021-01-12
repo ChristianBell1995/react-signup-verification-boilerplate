@@ -10,9 +10,10 @@ import { Admin } from '@/admin';
 import { Account } from '@/account';
 
 function App() {
-    const { pathname } = useLocation();  
+    const { pathname } = useLocation();
     const [user, setUser] = useState({});
-
+    console.log("Log search from APP")
+    console.log(window.location.search)
     useEffect(() => {
         const subscription = accountService.user.subscribe(x => setUser(x));
         return subscription.unsubscribe;
@@ -34,4 +35,4 @@ function App() {
     );
 }
 
-export { App }; 
+export { App };
