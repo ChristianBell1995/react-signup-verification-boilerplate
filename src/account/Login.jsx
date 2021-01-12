@@ -11,6 +11,9 @@ function Login({ history, location }) {
         password: ''
     };
 
+    console.log("Seach (query params)")
+    console.log(window.location.search)
+
     const validationSchema = Yup.object().shape({
         email: Yup.string()
             .email('Email is invalid')
@@ -23,6 +26,8 @@ function Login({ history, location }) {
         accountService.login(email, password)
             .then(() => {
                 const { from } = location.state || { from: { pathname: "/" } };
+                console.log(from)
+                console.log("from is above")
                 history.push(from);
             })
             .catch(error => {
@@ -66,4 +71,4 @@ function Login({ history, location }) {
     )
 }
 
-export { Login }; 
+export { Login };

@@ -6,7 +6,7 @@ frontend:
         - npm ci
     build:
       commands:
-        - npm run build
+        - webpack --mode production
   artifacts:
     # IMPORTANT - Please verify your build output directory
     baseDirectory: dist
