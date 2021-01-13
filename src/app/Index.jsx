@@ -12,6 +12,7 @@ import { Account } from '@/account';
 function App() {
     const { pathname } = useLocation();
     const [user, setUser] = useState({});
+    const [message, setMessage] = useState(null);
     console.log("Log search from APP")
     console.log(window.location.search)
     useEffect(() => {
@@ -25,7 +26,9 @@ function App() {
             <Alert />
             <Switch>
                 <Redirect from="/:url*(/+)" to={pathname.slice(0, -1)} />
-                <PrivateRoute exact path="/" component={Home} />
+                <Route exact path="/">
+                  <Home message={message} setMessage={setMessage} />
+                </Route>
                 <PrivateRoute path="/profile" component={Profile} />
                 <PrivateRoute path="/admin" roles={[Role.Admin]} component={Admin} />
                 <Route path="/account" component={Account} />

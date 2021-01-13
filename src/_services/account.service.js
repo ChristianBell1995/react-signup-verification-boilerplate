@@ -8,6 +8,7 @@ const baseUrl = `${config.apiUrl}/accounts`;
 
 export const accountService = {
     login,
+    handleLWACallback,
     logout,
     refreshToken,
     register,
@@ -31,6 +32,15 @@ function login(email, password) {
             userSubject.next(user);
             startRefreshTokenTimer();
             return user;
+        });
+}
+
+function handleLWACallback(lwaResponse) {
+  return fetchWrapper.post(`${baseUrl}/lwacallback`, lwaResponse)
+        .then(res => {
+            // publish user to subscribers and start timer to refresh token
+           console.log(res)
+           return
         });
 }
 

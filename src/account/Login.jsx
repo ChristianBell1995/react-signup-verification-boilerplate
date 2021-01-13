@@ -26,8 +26,6 @@ function Login({ history, location }) {
         accountService.login(email, password)
             .then(() => {
                 const { from } = location.state || { from: { pathname: "/" } };
-                console.log(from)
-                console.log("from is above")
                 history.push(from);
             })
             .catch(error => {
