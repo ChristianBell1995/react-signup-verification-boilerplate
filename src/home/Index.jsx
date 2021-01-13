@@ -43,10 +43,14 @@ function Home(amazonUrls) {
             <div className="container">
                 <h1>Hi Christian!</h1>
                 <p>You're logged in with React & JWT!!</p>
+                <br />
                 <a href={amazonUrls.amazonUrls.alexa_app_url}> Alexa Installed - add omni to alexa!</a>
                 <br />
+                <br />
                 <a href={amazonUrls.amazonUrls.lwa_fallback_url}>Alexa not installed - Add Omni to Alexa!</a>
-
+                <br />
+                <br />
+                <br />
                 <form onSubmit={handleSubmit}>
                   <input type="text" name="token" placeholder="Token"/>
                   <input type="submit" value="Trigger Alexa!" />
