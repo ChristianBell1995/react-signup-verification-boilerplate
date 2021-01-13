@@ -10,6 +10,7 @@ export const accountService = {
     login,
     handleLWACallback,
     fetchAmazonUrls,
+    triggerAlexaEvent,
     logout,
     refreshToken,
     register,
@@ -48,6 +49,15 @@ function handleLWACallback(lwaResponse) {
 function fetchAmazonUrls() {
   return fetchWrapper.get(`${baseUrl}/amazonurls`)
     .then(res => res)
+}
+
+function triggerAlexaEvent(body) {
+  return fetchWrapper.post(`${baseUrl}/trigger`, body)
+        .then(res => {
+            // publish user to subscribers and start timer to refresh token
+           console.log(res)
+           return
+        });
 }
 
 function logout() {
