@@ -12,12 +12,16 @@ import { Account } from '@/account';
 function App() {
     const { pathname } = useLocation();
     const [user, setUser] = useState({});
-    const [message, setMessage] = useState(null);
+    const [amazonUrls, setAmazonUrls] = useState({});
     console.log("Log search from APP")
     console.log(window.location.search)
     useEffect(() => {
         const subscription = accountService.user.subscribe(x => setUser(x));
         return subscription.unsubscribe;
+    }, []);
+    useEffect(() => {
+      const urls = accountService.fetchAmazonUrls()
+      setAmazonUrls(urls)
     }, []);
 
     return (
@@ -27,7 +31,7 @@ function App() {
             <Switch>
                 <Redirect from="/:url*(/+)" to={pathname.slice(0, -1)} />
                 <Route exact path="/">
-                  <Home message={message} setMessage={setMessage} />
+                  <Home amazonUrls={amazonUrls} />
                 </Route>
                 <PrivateRoute path="/profile" component={Profile} />
                 <PrivateRoute path="/admin" roles={[Role.Admin]} component={Admin} />

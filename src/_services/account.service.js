@@ -9,6 +9,7 @@ const baseUrl = `${config.apiUrl}/accounts`;
 export const accountService = {
     login,
     handleLWACallback,
+    fetchAmazonUrls,
     logout,
     refreshToken,
     register,
@@ -42,6 +43,11 @@ function handleLWACallback(lwaResponse) {
            console.log(res)
            return
         });
+}
+
+function fetchAmazonUrls() {
+  return fetchWrapper.get(`${baseUrl}/amazonurls`)
+    .then(res => res.json())
 }
 
 function logout() {
