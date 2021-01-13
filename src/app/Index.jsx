@@ -20,8 +20,16 @@ function App() {
         return subscription.unsubscribe;
     }, []);
     useEffect(() => {
-      const urls = accountService.fetchAmazonUrls()
-      setAmazonUrls(urls)
+      accountService.fetchAmazonUrls()
+        .then((res) => {
+          console.log("res")
+          console.log(res)
+          setAmazonUrls(res)
+        })
+        .catch(error => {
+            console.log("error")
+            console.log(error)
+        });
     }, []);
 
     return (

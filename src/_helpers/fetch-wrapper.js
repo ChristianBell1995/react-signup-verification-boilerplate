@@ -16,10 +16,6 @@ function get(url) {
     return fetch(url, requestOptions).then(handleResponse);
 }
 
-const headers = {
-
-}
-
 function post(url, body) {
     const requestOptions = {
         method: 'POST',
