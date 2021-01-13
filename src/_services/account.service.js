@@ -47,7 +47,7 @@ function handleLWACallback(lwaResponse) {
 
 function fetchAmazonUrls() {
   return fetchWrapper.get(`${baseUrl}/amazonurls`)
-    .then(res => res.json())
+    .then(res => res)
 }
 
 function logout() {
