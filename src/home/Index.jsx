@@ -25,17 +25,19 @@ function Home(amazonUrls) {
       const formData = new FormData(event.target);
       event.preventDefault();
       console.log(formData.entries())
+      const obj = {}
       for (let [key, value] of formData.entries()) {
-        console.log({token: value})
-          accountService.triggerAlexaEvent({token: value})
-            .then((res) => {
-                console.log(res)
-            })
-            .catch(error => {
-                console.log(error)
-                alertService.error(error);
-            });
+        obj[key] = value
       }
+      console.log(obj)
+      accountService.triggerAlexaEvent(obj)
+        .then((res) => {
+            console.log(res)
+        })
+        .catch(error => {
+            console.log(error)
+            alertService.error(error);
+        });
     }
 
     return (
@@ -53,6 +55,7 @@ function Home(amazonUrls) {
                 <br />
                 <form onSubmit={handleSubmit}>
                   <input type="text" name="token" placeholder="Token"/>
+                  <input type="text" name="endpointId" placeholder="endpointId"/>
                   <input type="submit" value="Trigger Alexa!" />
                 </form>
             </div>
