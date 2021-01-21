@@ -42,27 +42,20 @@ function Home(amazonUrls) {
 
     return (
         <div className="p-4">
-            <div className="container">
-                <h1>Hi Christian!</h1>
+            <div className="container text-center">
+                <h1>Connect your Alexa to Omni</h1>
                 <br />
-                <p>Step one - link omni account to alexa account:</p>
-                <a href={amazonUrls.amazonUrls.alexa_app_url}> Alexa Installed - add omni to alexa!</a>
-                <br />
-                <br />
-                <p>Step two - add routine to alexa app:</p>
-                <br />
-                <a href={amazonUrls.amazonUrls.morning_routine}>Add morning routine (endpointId = 1)</a>
+                <p><strong>Step 1</strong><br /> Connected your Amazon Alexa account to Omni</p>
+                <a className="btn btn-primary text-white" href={amazonUrls.amazonUrls.alexa_app_url}>Connect</a>
                 <br />
                 <br />
-                <a href={amazonUrls.amazonUrls.evening_routine}>Add evening routine (endpointId = 2)</a>
+                <hr />
+                <p><strong>Step 2</strong><br /> Setup our custom routines</p>
+                <br />
+                <a className="btn btn-primary  text-white" href={amazonUrls.amazonUrls.morning_routine}>Add morning routine</a>
                 <br />
                 <br />
-                <p>Step three - trigger routine via smart home sensors (This is done by our BE eventually).</p>
-                <form onSubmit={handleSubmit}>
-                  <input type="text" name="token" placeholder="Token"/>
-                  <input type="text" name="endpointId" placeholder="endpointId"/>
-                  <input type="submit" value="Trigger Alexa!" />
-                </form>
+                <a className="btn btn-primary  text-white" href={amazonUrls.amazonUrls.evening_routine}>Add evening routine</a>
             </div>
         </div>
     );
