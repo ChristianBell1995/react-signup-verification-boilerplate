@@ -5,6 +5,7 @@ import { Role } from '@/_helpers';
 import { accountService } from '@/_services';
 import { Nav, PrivateRoute, Alert } from '@/_components';
 import { Home } from '@/home';
+import { Trigger } from '@/trigger';
 import { Profile } from '@/profile';
 import { Admin } from '@/admin';
 import { Account } from '@/account';
@@ -40,6 +41,9 @@ function App() {
                 <Redirect from="/:url*(/+)" to={pathname.slice(0, -1)} />
                 <Route exact path="/">
                   <Home amazonUrls={amazonUrls} />
+                </Route>
+                <Route exact path="/trigger">
+                  <Trigger amazonUrls={amazonUrls} />
                 </Route>
                 <PrivateRoute path="/profile" component={Profile} />
                 <PrivateRoute path="/admin" roles={[Role.Admin]} component={Admin} />

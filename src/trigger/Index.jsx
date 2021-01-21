@@ -4,7 +4,7 @@ import querystring from 'querystring';
 
 import { accountService } from '@/_services';
 
-function Home(amazonUrls) {
+function Trigger(amazonUrls) {
     console.log(amazonUrls)
     console.log(window.location.search)
     if (window.location.search) {
@@ -43,21 +43,6 @@ function Home(amazonUrls) {
     return (
         <div className="p-4">
             <div className="container">
-                <h1>Hi Christian!</h1>
-                <br />
-                <p>Step one - link omni account to alexa account:</p>
-                <a href={amazonUrls.amazonUrls.alexa_app_url}> Alexa Installed - add omni to alexa!</a>
-                <br />
-                <br />
-                <p>Step two - add routine to alexa app:</p>
-                <br />
-                <a href={amazonUrls.amazonUrls.morning_routine}>Add morning routine (endpointId = 1)</a>
-                <br />
-                <br />
-                <a href={amazonUrls.amazonUrls.evening_routine}>Add evening routine (endpointId = 2)</a>
-                <br />
-                <br />
-                <p>Step three - trigger routine via smart home sensors (This is done by our BE eventually).</p>
                 <form onSubmit={handleSubmit}>
                   <input type="text" name="token" placeholder="Token"/>
                   <input type="text" name="endpointId" placeholder="endpointId"/>
@@ -68,4 +53,4 @@ function Home(amazonUrls) {
     );
 }
 
-export { Home };
+export { Trigger };
